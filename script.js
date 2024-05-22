@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".links");
 
-  // Remove any existing click event listeners to avoid duplicates
   hamburger.removeEventListener("click", toggleNavLinks);
 
-  // Define the function separately to easily remove it if needed
+
   function toggleNavLinks() {
       navLinks.classList.toggle("active");
       console.log(navLinks.classList);
@@ -55,15 +54,41 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); 
 
-    // const colorToggleButton = document.getElementById('colorToggleButton');
+    function toggleMode() {
+      let isChecked = document.getElementById("Mode").checked;
+      let home = document.getElementById("home");
+      let header = document.querySelector("header");
+      let start = document.getElementsByClassName("startButton");
+      let links = document.getElementsByClassName("a-link");
+      let section = document.getElementsByClassName("section");
 
-    // colorToggleButton.addEventListener('click', () => {
-    //     document.body.classList.toggle('light-mode');
-    //     document.querySelector('header').classList.toggle('light-mode');
-    //     document.querySelectorAll('.links a').forEach(link => link.classList.toggle('light-mode'));
-    //     document.querySelectorAll('.startButton, .colorToggleButton').forEach(button => button.classList.toggle('light-mode'));
-    //     document.querySelector('footer').classList.toggle('light-mode');
-    // });
+    
+      if (isChecked === true) {
+        home.classList.add("light-mode");
+        home.classList.remove("dark-mode");
+        header.classList.add("light-mode");
+        header.classList.remove("dark-mode");
+        links.classList.add("light-mode");
+        links.classList.remove("dark-mode");
+        start.classList.add("light-mode");
+        start.classList.remove("dark-mode");
+        section.classList.add("light-mode");
+        section.classList.remove("dark-mode");
+      } else {
+        home.classList.remove("light-mode");
+        home.classList.add("dark-mode");
+        header.classList.remove("light-mode");
+        header.classList.add("dark-mode");
+        links.classList.remove("light-mode");
+        links.classList.add("dark-mode");
+        start.classList.remove("light-mode");
+        start.classList.add("dark-mode");
+        section.classList.remove("light-mode");
+        section.classList.add("dark-mode");
+      }
+    }
+    
+    document.getElementById("Mode").addEventListener("change", toggleMode);
 });
 
 

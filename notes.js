@@ -6,8 +6,15 @@ function addNote(){
     note.classList.add('note');
     note.setAttribute('contenteditable', '');
     note.textContent = '';
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+    note.style.backgroundColor = getRandomColor();
     note.addEventListener("keyup", (event) => {
-        if(event.shiftKey && event.keyCode === 46){
+        if(event.altKey && event.keyCode === 46){
             col.remove();
         }
     });

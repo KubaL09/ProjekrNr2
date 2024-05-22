@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -121,6 +121,14 @@ h1 {
     color:white;
     padding: 2px;
 }
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+  }
 
 @media (max-width: 768px) {
 

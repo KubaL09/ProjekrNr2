@@ -42,7 +42,7 @@ body {
       margin-top: -99vh;
   }
 
-  #home {
+  #home.dark-mode {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,6 +52,20 @@ body {
     text-align: center;
     color: White;
     background-color: black;
+    transition: background-color 0.5s ease-in;
+  }
+
+   #home.light-mode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 100vw;
+    text-align: center;
+    color: black;
+    background-color: white;
+    transition: background-color 0.5s ease-in;
   }
   
   #home h1 {
@@ -66,12 +80,6 @@ body {
     transform: translateY(0);
   }
 
-  .indexHeader {
-    z-index: 2;
-    position: relative;
-    color: white;
-}
-
 
 header {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
@@ -84,10 +92,31 @@ header {
   align-items: center;
   transition: background 0.8s;
   box-sizing: border-box;
+  color: white;
+  transition: background-color 0.5s ease-in;
 }
 
-header.scrolled {
+header.light-mode {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+  padding: 1em;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.8s;
+  box-sizing: border-box;
+  color: black;
+  transition: background-color 0.5s ease-in;
+}
+
+.header .dark-mode .scrolled {
   background: rgba(0, 0, 0, 1);
+}
+
+.dark-mode .header.scrolled .light-mode {
+  background: rgba(255, 255, 255, 1);
 }
 
 nav {
@@ -106,13 +135,25 @@ nav {
   margin: 0;
 }
 
-.links a {
-  color: #fff;
+.a-link {
   text-decoration: none;
-  padding: 0 1em;
 }
 
-.startButton {
+.dark-mode .a-link:visited{
+  text-decoration: none;
+  padding: 0 1em;
+  color: white;
+  text-decoration: none;
+}
+
+.light-mode .a-link:visited{
+  text-decoration: none;
+  padding: 0 1em;
+  color: black;
+  text-decoration: none;
+}
+
+.dark-mode .startButton{
   padding: 2vh;
   max-width: 100px;
   background-color: white;
@@ -125,8 +166,24 @@ nav {
   border-radius: 15px;
 }
 
-.startButton:hover {
+.light-mode .startButton {
+  padding: 2vh;
+  max-width: 100px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex: 1;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.dark-mode .startButton:hover {
   background-color: #bababa;
+}
+.light-mode .startButton:hover {
+  background-color: rgb(66, 66, 66);
 }
 
 .hamburger {
@@ -143,16 +200,24 @@ nav {
   transition: all 0.7s ease;
 }
 
-#features{
+#features.dark-mode {
     background-color: black;
     color: white;
-    position: relative;
+    /* position: relative; */
     z-index: 100;
 }
+
+/* .light-mode  #features{
+  background-color: black;
+  color: white;
+  position: relative;
+  z-index: 100;
+} */
 
 .section {
     padding: 10vh;
     text-align: center;
+    position: relative;
   }
 
 #gallery {
@@ -164,6 +229,11 @@ nav {
     align-items: center;
     flex-direction: column;
     width: 100vw;
+}
+
+#gallery.light-mode {
+  background-color: white;
+  color: black;
 }
   
 #gallery h2 {
@@ -199,6 +269,11 @@ nav {
     z-index: 100;
     display: flex;
     justify-content:center;
+  }
+
+  #portfolio.light-mode {
+    background-color: white;
+    color: black;
   }
   
 .column {
@@ -254,29 +329,13 @@ nav {
     margin-top: auto;
   }
 
-
-  /* body, header, .links a, .startButton, footer {
-    transition: background-color 0.5s, color 0.5s;
-}
-
-
-.section.light-mode {
+  footer.light-mode {
     background-color: white;
     color: black;
-}
+  }
 
-header.light-mode {
-    background-color: rgba(255, 255, 255, 1);
-}
 
-.links a.light-mode {
-    color: black;
-}
 
-.startButton.light-mode, .colorToggleButton.light-mode {
-    background-color: white;
-    color: black;
-} */
 .hamburger {
   display: none;
 }
@@ -287,6 +346,52 @@ header.light-mode {
   background-color: white;
   margin: 6px auto;
   transition: all 0.7s ease;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 4vw;
+  height: 4vh;
+  margin-left: 1vw;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 3vh;
+  width: 3vh;
+  left: 4px;
+  bottom: 4px;
+  background-color: antiquewhite;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(34, 34, 34);
+}
+
+input:checked + .slider:before {
+  transform: translateX(2vw);
 }
 
 @keyframes fade-in {
@@ -312,6 +417,11 @@ header.light-mode {
   }
   
   @media (max-width: 768px) {
+
+    .switch {
+      display: none;
+    }
+
     .links {
       display: none;
     }
