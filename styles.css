@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -191,20 +191,7 @@ nav {
     height: 220px;
   }
   
-  /* .portfolio-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .portfolio-item {
-    background: #f9f9f9;
-    padding: 2em;
-    margin: 1em;
-    flex: 1 1 calc(30% - 2em);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-   */
+
    #portfolio {
     background-color: black;
     color: white;
@@ -268,7 +255,39 @@ nav {
   }
 
 
+  /* body, header, .links a, .startButton, footer {
+    transition: background-color 0.5s, color 0.5s;
+}
 
+
+.section.light-mode {
+    background-color: white;
+    color: black;
+}
+
+header.light-mode {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.links a.light-mode {
+    color: black;
+}
+
+.startButton.light-mode, .colorToggleButton.light-mode {
+    background-color: white;
+    color: black;
+} */
+.hamburger {
+  display: none;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px auto;
+  transition: all 0.7s ease;
+}
 
 @keyframes fade-in {
     from {
@@ -289,20 +308,12 @@ nav {
         width: 100px;
     }
   
-    .gallery-card,
-    .portfolio-item {
-      flex: 1 1 calc(45% - 2em);
-    }
+ 
   }
   
   @media (max-width: 768px) {
     .links {
       display: none;
-    }
-
-    .images {
-        height: 10px;
-        width: 50px;
     }
   
     .links.active {
@@ -328,6 +339,16 @@ nav {
       left: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.8);
+    }
+  
+
+    #portfolio {
+        font-size: 1vh;
+    }
+
+    .portfolio-item {
+        height: 50px;
+        width: 100px;
     }
   
     #home h1 {
