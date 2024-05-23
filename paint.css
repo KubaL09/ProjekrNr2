@@ -130,38 +130,53 @@ footer {
     margin-top: auto;
   }
 
+  footer p a {
+    text-decoration: none;
+
+  }
+
+  footer p a:visited {
+  color: white;  
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 @media (max-width: 768px) {
 
+  .links {
+    display: none;
+  }
 
-    .links {
-      display: none;
-    }
+  .links.active {
+    animation: fade-in 0.5s forwards;
+    height: 30vh;
+    background-color: black;
+    padding: 2vh;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
-  
-    .links.active {
-      animation: fade-in 0.5s forwards;
-      height: 30vh;
-      background-color: black;
-      padding: 2vh;
-      font-size: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-  
-    .hamburger {
-      display: flex;
-    }
-  
-    nav ul.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-    }
-  
-  
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
   }

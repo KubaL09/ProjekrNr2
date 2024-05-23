@@ -13,15 +13,15 @@ let lineWidth = 5;
 let startX;
 let startY;
 
-// document.addEventListener("DOMContentLoaded1", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
 
-// const hamburger = document.querySelector(".hamburger");
-// const navLinks = document.querySelector(".links");
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".links");
 
-// hamburger.addEventListener("click", () => {
-//   navLinks.classList.toggle("active");
-// });
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 
 
 toolbar.addEventListener('click', e => {
@@ -68,4 +68,4 @@ canvas.addEventListener('mouseup', e => {
 canvas.addEventListener('mousemove', draw);
 
 
-// });
+});

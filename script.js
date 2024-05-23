@@ -60,31 +60,60 @@ document.addEventListener("DOMContentLoaded", () => {
       let header = document.querySelector("header");
       let start = document.getElementsByClassName("startButton");
       let links = document.getElementsByClassName("a-link");
-      let section = document.getElementsByClassName("section");
-
+      let features = document.getElementById("features");
+      let gallery = document.getElementById("gallery")
+      let card = document.getElementsByClassName("gallery-card");
+      let portfolio = document.getElementById("portfolio")
     
       if (isChecked === true) {
         home.classList.add("light-mode");
         home.classList.remove("dark-mode");
         header.classList.add("light-mode");
         header.classList.remove("dark-mode");
-        links.classList.add("light-mode");
-        links.classList.remove("dark-mode");
-        start.classList.add("light-mode");
-        start.classList.remove("dark-mode");
-        section.classList.add("light-mode");
-        section.classList.remove("dark-mode");
+        for (let i = 0; i < links.length; i++) {
+          links[i].classList.add("light-mode");
+          links[i].classList.remove("dark-mode");
+        }
+        for (let i = 0; i < start.length; i++) {
+          start[i].classList.add("light-mode");
+          start[i].classList.remove("dark-mode");
+        }
+
+        for (let i = 0; i < start.length; i++) {
+          card[i].classList.add("light-mode");
+          card[i].classList.remove("dark-mode");
+        }
+        features.classList.add("light-mode");
+        features.classList.remove("dark-mode");
+        gallery.classList.add("light-mode");
+        gallery.classList.remove("dark-mode");
+        portfolio.classList.add("light-mode");
+        portfolio.classList.remove("dark-mode");
       } else {
         home.classList.remove("light-mode");
         home.classList.add("dark-mode");
         header.classList.remove("light-mode");
         header.classList.add("dark-mode");
-        links.classList.remove("light-mode");
-        links.classList.add("dark-mode");
-        start.classList.remove("light-mode");
-        start.classList.add("dark-mode");
-        section.classList.remove("light-mode");
-        section.classList.add("dark-mode");
+    
+        for (let i = 0; i < links.length; i++) {
+          links[i].classList.remove("light-mode");
+          links[i].classList.add("dark-mode");
+        }
+    
+        for (let i = 0; i < start.length; i++) {
+          start[i].classList.remove("light-mode");
+          start[i].classList.add("dark-mode");
+        }
+        for (let i = 0; i < start.length; i++) {
+          card[i].classList.remove("light-mode");
+          card[i].classList.add("dark-mode");
+        }
+        features.classList.remove("light-mode");
+        features.classList.add("dark-mode");
+        gallery.classList.remove("light-mode");
+        gallery.classList.add("dark-mode");
+        portfolio.classList.remove("light-mode");
+        portfolio.classList.add("dark-mode");
       }
     }
     

@@ -35,3 +35,16 @@ function makeItalic(){
 function makeUnderLine(){
     document.execCommand('underline');
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".links");
+    
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+});
